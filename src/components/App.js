@@ -6,12 +6,12 @@ import PostList from './posts/PostList';
 import { GoogleLogin } from 'react-google-login';
 import config from '../config.js';
 
-import MyPlaceBird from '../images/bird.png';
+import MyPlaceBird from '../images/samurai.jpeg';
 var imgStyle = {
   maxWidth: "85px",
 };
 
-export default function App(props) {
+export default function App(props){
 
   const [loginMessage, setLoginMessage] = useState(null);
 
@@ -21,7 +21,7 @@ export default function App(props) {
     sessionStorage.setItem('name', profile.getName());
     sessionStorage.setItem('email', profile.getEmail());
     sessionStorage.setItem('image', profile.getImageUrl());
-
+    
     props.history.push("/home");
   }
 
@@ -29,12 +29,12 @@ export default function App(props) {
     setLoginMessage(<Alert color="danger">Inicio de sesión incorrecto. Inténtelo de nuevo</Alert>);
   }
 
-  return (
+  return(
     <Container>
       <Row>
         <Col>
           <Navbar color="primary" light expand="md">
-            <Media style={imgStyle} object src={MyPlaceBird} alt="Bird" /><NavbarBrand><h4 className="text-white">My Twitter Clone</h4></NavbarBrand>
+          <Media style={imgStyle} object src={MyPlaceBird} alt="Bird"/><NavbarBrand><h4 className="text-white">My Twitter Clone</h4></NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 {loginMessage}
@@ -51,8 +51,8 @@ export default function App(props) {
         </Col>
       </Row>
       <Row>
-        <Col xs="12">
-          <PostList />
+        <Col xs= "12">
+          <PostList/>
         </Col>
       </Row>
     </Container>
